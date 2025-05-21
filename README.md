@@ -14,6 +14,7 @@ This Python script provides functionality to validate and geocode New Jersey add
 
 - Python 3.x
 - `requests` library
+- `pyproj` library (optional, for coordinate conversion)
 
 ## Installation
 
@@ -28,6 +29,9 @@ source venv/bin/activate  # On Unix/macOS
 
 ```bash
 pip install requests
+
+# Optional: for coordinate conversion
+pip install pyproj
 ```
 
 ## Usage
@@ -40,9 +44,48 @@ from address_lookup import geocode_address
 result = geocode_address("123 Main St, Newark, NJ")
 if result:
     print(f"Matched Address: {result['matched_address']}")
-    print(f"Latitude: {result['latitude']}")
-    print(f"Longitude: {result['longitude']}")
+    print(f"Latitude: {result['latitude']}")  # Returns in NJ State Plane coordinates
+    print(f"Longitude: {result['longitude']}")  # Returns in NJ State Plane coordinates
 ```
+
+### Coordinate System Information
+
+The API returns coordinates in the **New Jersey State Plane** coordinate system (EPSG:3424/NAD83), not in the standard WGS84 latitude/longitude format. If you need standard GPS coordinates, you can use the following conversion function:
+
+```python
+from pyproj import Transformer
+
+# Create a transformer object (do this once, outside your functions)
+transformer = Transformer.from_crs(
+    "epsg:3424",  # NJ State Plane
+    "epsg:4326",  # WGS84 (standard lat/long)
+    always_xy=True  # Ensure we get longitude, latitude order
+)
+
+def convert_coordinates(state_plane_x: float, state_plane_y: float) -> tuple[float, float]:
+    """
+    Convert NJ State Plane coordinates to WGS84 latitude/longitude.
+
+    Args:
+        state_plane_x: X coordinate in NJ State Plane
+        state_plane_y: Y coordinate in NJ State Plane
+
+    Returns:
+        tuple: (latitude, longitude) in WGS84
+    """
+    lon, lat = transformer.transform(state_plane_x, state_plane_y)
+    return lat, lon
+
+# Example usage:
+# state_plane_coords = result['longitude'], result['latitude']  # Note: x=longitude, y=latitude
+# lat, lon = convert_coordinates(*state_plane_coords)
+# print(f"GPS Coordinates: {lat}, {lon}")  # Will be approximately 40.89, -74.48 for central NJ
+```
+
+For New Jersey, the converted WGS84 coordinates should typically be:
+
+- Latitude: Between 38.9° and 41.4° North
+- Longitude: Between -75.6° and -73.9° West
 
 ### Generating Random Addresses
 
