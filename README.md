@@ -5,6 +5,7 @@ This Python script provides functionality to validate and geocode New Jersey add
 ## Features
 
 - Geocode single NJ addresses with detailed match information
+- Generate random NJ addresses and save them to CSV
 - Test API rate limits with random NJ addresses
 - Detailed logging of geocoding results and rate limit testing
 - Handles multiple address match candidates with scoring
@@ -42,6 +43,22 @@ if result:
     print(f"Latitude: {result['latitude']}")
     print(f"Longitude: {result['longitude']}")
 ```
+
+### Generating Random Addresses
+
+To generate random NJ addresses and save them to a CSV file:
+
+```bash
+python address_lookup.py generate [num_addresses] [output_file]
+```
+
+For example:
+
+```bash
+python address_lookup.py generate 100 my_addresses.csv
+```
+
+This will generate 100 random NJ addresses and save them to `my_addresses.csv`. If no arguments are provided, it will generate 100 addresses and save them to `generated_addresses.csv`.
 
 ### Testing Rate Limits
 

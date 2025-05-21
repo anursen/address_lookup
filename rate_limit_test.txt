@@ -1,0 +1,253 @@
+Rate Limit Test Started at: 2025-05-19 15:23:12.763241
+Testing with random NJ addresses
+================================
+Request 1 at 2025-05-19 15:23:12.892365:
+  Input: 485 Main St, Jersey City, NJ
+  Best Match: No match
+  Coords: (N/A, N/A)
+
+  All Matches:
+--------------------------------------------------
+Request 2 at 2025-05-19 15:23:14.127807:
+  Input: 160 Main Dr, Newark, NJ
+  Best Match: 160 Main Street, Newark, New Jersey, 07105
+  Coords: (689550.1314740253, 590300.8484290513)
+
+  All Matches:
+    - 160 Main Street, Newark, New Jersey, 07105
+      Score: 97.74
+      Type: StreetAddress
+      Coords: (689550.1314740253, 590300.8484290513)
+    - 160 Main Street, Orange, New Jersey, 07050
+      Score: 86.11
+      Type: StreetAddress
+      Coords: (705371.6542379962, 568592.7435205717)
+--------------------------------------------------
+Request 3 at 2025-05-19 15:23:14.722428:
+  Input: 669 Elm Way, Newark, NJ
+  Best Match: 669 Elm Street, Kearny, New Jersey, 07032
+  Coords: (707662.1586695522, 593096.9384401996)
+
+  All Matches:
+    - 669 Elm Street, Kearny, New Jersey, 07032
+      Score: 86.11
+      Type: PointAddress
+      Coords: (707662.1586695522, 593096.9384401996)
+--------------------------------------------------
+Request 4 at 2025-05-19 15:23:15.306407:
+  Input: 555 Elm Ln, Elizabeth, NJ
+  Best Match: 555 Elm Street, Roselle Park, New Jersey, 07204
+  Coords: (667869.4038809952, 556134.1011490762)
+
+  All Matches:
+    - 555 Elm Street, Roselle Park, New Jersey, 07204
+      Score: 86.11
+      Type: StreetAddress
+      Coords: (667869.4038809952, 556134.1011490762)
+--------------------------------------------------
+Request 5 at 2025-05-19 15:23:15.899947:
+  Input: 564 Elm Ave, Jersey City, NJ
+  Best Match: No match
+  Coords: (N/A, N/A)
+
+  All Matches:
+--------------------------------------------------
+Request 6 at 2025-05-19 15:23:16.501793:
+  Input: 28 Maple Dr, Trenton, NJ
+  Best Match: 28 Maple Avenue, Trenton, New Jersey, 08618
+  Coords: (511886.3328088736, 412121.78387673537)
+
+  All Matches:
+    - 28 Maple Avenue, Trenton, New Jersey, 08618
+      Score: 97.74
+      Type: StreetAddress
+      Coords: (511886.3328088736, 412121.78387673537)
+    - 28 Maple Avenue, Trenton, New Jersey, 08648
+      Score: 97.74
+      Type: StreetAddress
+      Coords: (536508.753325981, 429605.7784403287)
+    - 28 Mable Avenue, Trenton, New Jersey, 08648
+      Score: 92.86
+      Type: StreetAddress
+      Coords: (515957.4932632089, 424302.1511887278)
+    - 28 East Maple Avenue, Trenton, New Jersey, 08618
+      Score: 92.39
+      Type: PointAddress
+      Coords: (183960.46506394589, 296201.9094620493)
+    - 28 Maplewood Avenue, Trenton, New Jersey, 08648
+      Score: 88.58
+      Type: StreetAddress
+      Coords: (514806.4493322997, 424745.8852565766)
+    - 28 Maple Court, Roosevelt, New Jersey, 08555
+      Score: 86.11
+      Type: StreetAddress
+      Coords: (505242.54519921343, 497979.32367312675)
+    - 28 Maple Shade Avenue, Trenton, New Jersey, 08690
+      Score: 85.53
+      Type: StreetAddress
+      Coords: (509318.95879380894, 447178.8697930577)
+    - 28 Maple Shade, Trenton, New Jersey, 08610
+      Score: 85.53
+      Type: StreetAddress
+      Coords: (493956.4661655064, 434581.3024446004)
+--------------------------------------------------
+Request 7 at 2025-05-19 15:23:17.099364:
+  Input: 166 Elm Ln, Elizabeth, NJ
+  Best Match: 166 Elm Street, Elizabeth, New Jersey, 07208
+  Coords: (668888.7835087158, 568002.4172229177)
+
+  All Matches:
+    - 166 Elm Street, Elizabeth, New Jersey, 07208
+      Score: 97.74
+      Type: PointAddress
+      Coords: (668888.7835087158, 568002.4172229177)
+--------------------------------------------------
+Request 8 at 2025-05-19 15:23:17.691896:
+  Input: 219 Maple Dr, Newark, NJ
+  Best Match: 219 Maple Avenue, Irvington, New Jersey, 07111
+  Coords: (687828.7904010186, 567950.0250121115)
+
+  All Matches:
+    - 219 Maple Avenue, Irvington, New Jersey, 07111
+      Score: 86.11
+      Type: StreetAddress
+      Coords: (687828.7904010186, 567950.0250121115)
+    - 219 Maple Avenue, Moorestown, New Jersey, 08057
+      Score: 86.11
+      Type: StreetAddress
+      Coords: (415708.796084691, 367953.69966856646)
+    - 219 Maple Street, Kearny, New Jersey, 07032
+      Score: 86.11
+      Type: StreetAddress
+      Coords: (701937.2755804113, 588365.8349239697)
+    - 219 North Maple Avenue, East Orange, New Jersey, 07017
+      Score: 81.41
+      Type: PointAddress
+      Coords: (703708.7804556997, 574147.37677428)
+--------------------------------------------------
+Request 9 at 2025-05-19 15:23:18.288059:
+  Input: 513 Cedar Blvd, Newark, NJ
+  Best Match: No match
+  Coords: (N/A, N/A)
+
+  All Matches:
+--------------------------------------------------
+Request 10 at 2025-05-19 15:23:18.972485:
+  Input: 745 Elm Way, Paterson, NJ
+  Best Match: No match
+  Coords: (N/A, N/A)
+
+  All Matches:
+--------------------------------------------------
+Successfully made 10 requests...
+Request 11 at 2025-05-19 15:23:19.566488:
+  Input: 256 Oak Blvd, Paterson, NJ
+  Best Match: 256 Oak Street, Paterson, New Jersey, 07501
+  Coords: (757095.6382268206, 586775.8355262635)
+
+  All Matches:
+    - 256 Oak Street, Paterson, New Jersey, 07501
+      Score: 97.74
+      Type: StreetAddress
+      Coords: (757095.6382268206, 586775.8355262635)
+    - 256 Boulevard, Passaic, New Jersey, 07055
+      Score: 95.43
+      Type: StreetAddress
+      Coords: (737039.6756681391, 593512.354383023)
+--------------------------------------------------
+Request 12 at 2025-05-19 15:23:20.148921:
+  Input: 690 Maple Ct, Paterson, NJ
+  Best Match: 690 Maple Avenue, Glen Rock, New Jersey, 07452
+  Coords: (775119.3401603388, 594810.9928030774)
+
+  All Matches:
+    - 690 Maple Avenue, Glen Rock, New Jersey, 07452
+      Score: 86.11
+      Type: StreetAddress
+      Coords: (775119.3401603388, 594810.9928030774)
+--------------------------------------------------
+Request 13 at 2025-05-19 15:23:20.751553:
+  Input: 650 Elm St, Trenton, NJ
+  Best Match: No match
+  Coords: (N/A, N/A)
+
+  All Matches:
+--------------------------------------------------
+Request 14 at 2025-05-19 15:23:21.369410:
+  Input: 322 Pine Rd, Elizabeth, NJ
+  Best Match: 322 Pine Street, Elizabeth, New Jersey, 07206
+  Coords: (663840.2863209287, 579007.3006221398)
+
+  All Matches:
+    - 322 Pine Street, Elizabeth, New Jersey, 07206
+      Score: 97.74
+      Type: PointAddress
+      Coords: (663840.2863209287, 579007.3006221398)
+--------------------------------------------------
+Request 15 at 2025-05-19 15:23:21.963390:
+  Input: 383 Cedar Ln, Elizabeth, NJ
+  Best Match: No match
+  Coords: (N/A, N/A)
+
+  All Matches:
+--------------------------------------------------
+Request 16 at 2025-05-19 15:23:22.599809:
+  Input: 741 Oak Dr, Camden, NJ
+  Best Match: No match
+  Coords: (N/A, N/A)
+
+  All Matches:
+--------------------------------------------------
+Request 17 at 2025-05-19 15:23:23.192806:
+  Input: 184 Pine Dr, Newark, NJ
+  Best Match: 184 Pine Place, Cedar Grove, New Jersey, 07009
+  Coords: (743968.3311515183, 565294.2977002384)
+
+  All Matches:
+    - 184 Pine Place, Cedar Grove, New Jersey, 07009
+      Score: 86.11
+      Type: StreetAddress
+      Coords: (743968.3311515183, 565294.2977002384)
+    - 184 Paine Avenue, Irvington, New Jersey, 07111
+      Score: 81.71
+      Type: PointAddress
+      Coords: (684963.0881563914, 564424.731475422)
+--------------------------------------------------
+Request 18 at 2025-05-19 15:23:23.790277:
+  Input: 301 Pine Ave, Camden, NJ
+  Best Match: 301 Pine Avenue, Blackwood, New Jersey, 08012
+  Coords: (351383.8025491025, 332046.0851407061)
+
+  All Matches:
+    - 301 Pine Avenue, Blackwood, New Jersey, 08012
+      Score: 100
+      Type: StreetAddress
+      Coords: (351383.8025491025, 332046.0851407061)
+    - 301 Pine Street, Camden, New Jersey, 08103
+      Score: 97.74
+      Type: PointAddress
+      Coords: (402332.85180428484, 317069.0660123686)
+    - 301 Pine Street, Audubon, New Jersey, 08106
+      Score: 97.74
+      Type: StreetAddress
+      Coords: (384491.45876773173, 331724.256561867)
+--------------------------------------------------
+Request 19 at 2025-05-19 15:23:24.381314:
+  Input: 693 Maple Ln, Paterson, NJ
+  Best Match: 693 Maple Avenue, Glen Rock, New Jersey, 07452
+  Coords: (775056.3863087107, 594809.9167782731)
+
+  All Matches:
+    - 693 Maple Avenue, Glen Rock, New Jersey, 07452
+      Score: 86.11
+      Type: StreetAddress
+      Coords: (775056.3863087107, 594809.9167782731)
+--------------------------------------------------
+Request 20 at 2025-05-19 15:23:24.965035:
+  Input: 895 Pine Rd, Jersey City, NJ
+  Best Match: No match
+  Coords: (N/A, N/A)
+
+  All Matches:
+--------------------------------------------------
+Successfully made 20 requests...

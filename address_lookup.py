@@ -1,6 +1,7 @@
 import requests
 import time
 import random
+import csv
 from datetime import datetime
 
 
@@ -25,6 +26,7 @@ def geocode_address(address: str) -> dict:
 
     # Get all candidates with their scores
     matches = []
+    # print(data)
     for candidate in candidates:
         matches.append(
             {
@@ -44,6 +46,7 @@ def geocode_address(address: str) -> dict:
         "longitude": candidates[0]["location"]["x"],
         "all_matches": matches,
     }
+
 
 def test_rate_limits():
     """
@@ -134,6 +137,61 @@ def test_rate_limits():
         print(f"Error message: {str(e)}")
         return request_count
 
+
+def generate_addresses_to_csv(
+    count: int, csv_file: str = "generated_addresses.csv"
+) -> None:
+    """
+    Generate random NJ addresses and save them to a CSV file.
+
+    Args:
+        count: Number of addresses to generate
+        csv_file: Path to the output CSV file (default: generated_addresses.csv)
+    """
+    # List of random NJ cities and street types for testing
+    nj_cities = ["Newark", "Jersey City", "Paterson", "Elizabeth", "Trenton", "Camden"]
+    street_types = ["St", "Ave", "Rd", "Blvd", "Ln", "Dr", "Ct", "Way"]
+    streets = ["Main", "Oak", "Maple", "Cedar", "Pine", "Elm"]
+
+    print(f"Generating {count} random addresses to {csv_file}...")
+
+    with open(csv_file, "w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        # Write header
+        writer.writerow(
+            [
+                "street_number",
+                "street_name",
+                "street_type",
+                "city",
+                "state",
+                "full_address",
+            ]
+        )
+
+        # Generate addresses
+        for _ in range(count):
+            number = str(random.randint(1, 999))
+            street = random.choice(streets)
+            street_type = random.choice(street_types)
+            city = random.choice(nj_cities)
+            full_address = f"{number} {street} {street_type}, {city}, NJ"
+
+            # Write to CSV
+            writer.writerow([number, street, street_type, city, "NJ", full_address])
+
+    print(f"Successfully generated {count} addresses to {csv_file}")
+
+
 if __name__ == "__main__":
-    print("Starting API rate limit test...")
-    test_rate_limits()
+    import sys
+
+    if len(sys.argv) > 1 and sys.argv[1] == "generate":
+        # Get number of addresses from command line or use default
+        num_addresses = int(sys.argv[2]) if len(sys.argv) > 2 else 100
+        # Get output file from command line or use default
+        output_file = sys.argv[3] if len(sys.argv) > 3 else "generated_addresses.csv"
+        generate_addresses_to_csv(num_addresses, output_file)
+    else:
+        print("Starting API rate limit test...")
+        test_rate_limits()
