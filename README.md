@@ -76,16 +76,6 @@ def convert_coordinates(state_plane_x: float, state_plane_y: float) -> tuple[flo
     lon, lat = transformer.transform(state_plane_x, state_plane_y)
     return lat, lon
 
-# Example usage:
-# state_plane_coords = result['longitude'], result['latitude']  # Note: x=longitude, y=latitude
-# lat, lon = convert_coordinates(*state_plane_coords)
-# print(f"GPS Coordinates: {lat}, {lon}")  # Will be approximately 40.89, -74.48 for central NJ
-```
-
-For New Jersey, the converted WGS84 coordinates should typically be:
-
-- Latitude: Between 38.9° and 41.4° North
-- Longitude: Between -75.6° and -73.9° West
 
 ### Generating Random Addresses
 
