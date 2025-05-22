@@ -67,15 +67,37 @@ def convert_coordinates(state_plane_x: float, state_plane_y: float) -> tuple[flo
     Convert NJ State Plane coordinates to WGS84 latitude/longitude.
 
     Args:
-        state_plane_x: X coordinate in NJ State Plane
-        state_plane_y: Y coordinate in NJ State Plane
+        state_plane_x: X coordinate in NJ State Plane (corresponds to longitude)
+        state_plane_y: Y coordinate in NJ State Plane (corresponds to latitude)
 
     Returns:
-        tuple: (latitude, longitude) in WGS84
+        tuple: (latitude, longitude) in WGS84 decimal degrees
     """
     lon, lat = transformer.transform(state_plane_x, state_plane_y)
     return lat, lon
+
+# Example usage:
+address = "3 Sue Court, Denville, NJ"
+result = geocode_address(address)
+
+if result:
+    # Get the State Plane coordinates from the API response
+    state_plane_x = result['longitude']  # Around 486259.02
+    state_plane_y = result['latitude']   # Around 738876.23
+
+    # Convert to WGS84 lat/lon
+    lat, lon = convert_coordinates(state_plane_x, state_plane_y)
+    print(f"Address: {result['matched_address']}")
+    print(f"WGS84 Coordinates: {lat:.6f}, {lon:.6f}")
+    # Will print something like: 40.888888, -74.484848
 ```
+
+For reference, valid WGS84 coordinates for New Jersey should be:
+
+- Latitude: Between 38.9° and 41.4° North
+- Longitude: Between -75.6° and -73.9° West
+
+You can verify the converted coordinates by pasting them into Google Maps or OpenStreetMap.
 
 ### Generating Random Addresses
 
