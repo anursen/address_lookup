@@ -48,6 +48,33 @@ def geocode_address(address: str) -> dict:
     }
 
 
+def convert_coordinates(state_plane_x: float, state_plane_y: float) -> tuple[float, float]:
+    """Convert NJ State Plane coordinates to standard latitude/longitude.
+
+    Parameters
+    ----------
+    state_plane_x : float
+        X coordinate returned by the API (longitude in EPSG:3424)
+    state_plane_y : float
+        Y coordinate returned by the API (latitude in EPSG:3424)
+
+    Returns
+    -------
+    tuple[float, float]
+        ``(latitude, longitude)`` in WGS84 decimal degrees.
+    """
+    try:
+        from pyproj import Transformer
+    except Exception as exc:  # pragma: no cover - optional dependency
+        raise ImportError(
+            "pyproj is required for coordinate conversion."
+        ) from exc
+
+    transformer = Transformer.from_crs("epsg:3424", "epsg:4326", always_xy=True)
+    lon, lat = transformer.transform(state_plane_x, state_plane_y)
+    return lat, lon
+
+
 def test_rate_limits():
     """
     Test how many requests we can make before hitting rate limits.

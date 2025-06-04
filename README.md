@@ -50,31 +50,10 @@ if result:
 
 ### Coordinate System Information
 
-The API returns coordinates in the **New Jersey State Plane** coordinate system (EPSG:3424/NAD83), not in the standard WGS84 latitude/longitude format. If you need standard GPS coordinates, you can use the following conversion function:
+The API returns coordinates in the **New Jersey State Plane** coordinate system (EPSG:3424/NAD83), not in standard WGS84 latitude/longitude. The `address_lookup` module provides a helper called `convert_coordinates` that performs this conversion using `pyproj`:
 
 ```python
-from pyproj import Transformer
-
-# Create a transformer object (do this once, outside your functions)
-transformer = Transformer.from_crs(
-    "epsg:3424",  # NJ State Plane
-    "epsg:4326",  # WGS84 (standard lat/long)
-    always_xy=True  # Ensure we get longitude, latitude order
-)
-
-def convert_coordinates(state_plane_x: float, state_plane_y: float) -> tuple[float, float]:
-    """
-    Convert NJ State Plane coordinates to WGS84 latitude/longitude.
-
-    Args:
-        state_plane_x: X coordinate in NJ State Plane (corresponds to longitude)
-        state_plane_y: Y coordinate in NJ State Plane (corresponds to latitude)
-
-    Returns:
-        tuple: (latitude, longitude) in WGS84 decimal degrees
-    """
-    lon, lat = transformer.transform(state_plane_x, state_plane_y)
-    return lat, lon
+from address_lookup import geocode_address, convert_coordinates
 
 # Example usage:
 address = "3 Sue Court, Denville, NJ"
